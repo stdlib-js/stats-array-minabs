@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,15 +16,32 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var minabs = require( './../lib' );
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var x = discreteUniform( 10, -50, 50, {
-	'dtype': 'float64'
-});
-console.log( x );
+import { NumericArray, Collection, AccessorArrayLike } from '@stdlib/types/array';
 
-var v = minabs( x );
-console.log( v );
+/**
+* Input array.
+*/
+type InputArray = NumericArray | Collection<number> | AccessorArrayLike<number>;
+
+/**
+* Computes the minimum absolute value of an array.
+*
+* @param x - input array
+* @returns minimum absolute value
+*
+* @example
+* var x = [ 1.0, -2.0, 2.0 ];
+*
+* var v = minabs( x );
+* // returns 1.0
+*/
+declare function minabs( x: InputArray ): number;
+
+
+// EXPORTS //
+
+export = minabs;
